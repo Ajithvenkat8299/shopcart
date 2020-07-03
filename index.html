@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShopKart</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="fontawesome/css/all.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery-3.1.1.slim.min.js"></script>
+    <script src="js/script.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>            
+  <header class="head">
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-4"><h2 class="title"><b>ShopKart</b></h2></div>
+      <div class="col-sm-1"><a href="index.html" class="home">
+        <svg class="bi bi-house-door" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M7.646 1.146a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5H9.5a.5.5 0 0 1-.5-.5v-4H7v4a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6zM2.5 7.707V14H6v-4a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4h3.5V7.707L8 2.207l-5.5 5.5z"/>
+          <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+        </svg></a></div>
+      <div class="col-sm-3">
+        <div class="search-box">
+                <input class="search-text" type="text" name="" placeholder="Search...">
+                <a href="#" class="search-btn">
+                  <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                  <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                  </svg></a>
+            </div>
+      </div>
+      <div class="col-sm-1">
+        <button type="button" class="btn btn-primary btn-cart" data-toggle="modal" data-target="#cart">
+          <svg class="bi bi-cart3" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="">
+          <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+          </svg><p class="p-count"><sup>(<span class="total-count"></span>)</sup></p></button>
+      </div>  
+      <div class="col-sm-1">
+        <button class="clear-cart btn btn-danger">Clear Cart</button>
+      </div>
+      <div class="col-sm-1">
+        <svg class="bi bi-star-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+        </svg>
+      </div>
+    </div>
+  </header>
+  <div class="row secline">
+    <div class="col-sm-2"><h3 align="center" class="filter"><b>Filters</b></h3></div>
+  </div>
+  <div class="row">
+      <div class="col-sm-2">
+        <div class="slidecontainer">
+          <input type="range" min="10000" max="1000000" value="5000" class="slider" id="myRange"><br>
+            <p align="center"><b>Price:</b> <span id="val"></span></p>
+            <a href="#"><button type="button" class="btn btn-primary apply">Apply</button></a>
+          </div>
+      </div>
+      <div class="col-sm-1 sortby"><b>Sort By</b></div>
+      <div class="col-sm-2" >
+        <a href="#" class="sort" style="margin-left: 0px"><sub>Price -- High Low</sub></a></div>
+      <div class="col-sm-2">
+      <a href="#" class="sort" style="margin-left: 0px"><sub>Price -- Low High</sub></a></div>
+      <div class="col-sm-1">
+        <a href="#" class="sort" style="margin-left: 0px"><sub>Discount</sub></a></div>
+      <div class="col-sm-4"></div>
+  </div>
+
+
+  <!-- Main -->
+  <div class="container">
+    <div class="row">
+         
+        <div class="col-sm-3"></div>
+         <div class="col-sm-2">
+        
+                <div class="card card-box" style="width: 18rem;height: 22rem;">
+                  <img class="card-img-top" src="apple.jpeg" alt="Card image cap">
+                        <div class="card-block">
+                            <h5 class="card-title" align="center">Samsung Series 4</h5>
+                            <p align="center">&#8377 13999 &#8377 <del>22500</del><b> 37% off</b></p>
+                            <a href="#" data-name="SamsungSeries4" data-price="13999" class="add-to-cart btn btn-primary">Add to cart</a>
+                        </div>
+               </div>
+              </a>
+          </div>
+          <div class="col-sm-1"></div>
+          <div class="col-sm-2">
+              <div class="card" style="width: 18rem;height: 22rem;margin-left: 40px;">
+                  <img class="card-img-top" src="apple.jpeg" alt="Card image cap">
+                  <div class="card-block">
+                    <h5 class="card-title" align="center">Samsung Super 6</h5>
+                    <p align="center">&#8377 35999 &#8377 <del>65900</del><b> 46% off</b></p>
+                    <a href="#" data-name="SamsungSuper6" data-price="35999" class="add-to-cart btn btn-primary">Add to cart</a>
+                  </div>
+              </div>
+          </div>
+         <div class="col-sm1"></div>
+         <div class="col-sm-2">
+              <div class="card" style="width: 18rem;height: 22rem;margin-left: 180px;">
+                <img class="card-img-top" src="apple.jpeg" alt="Card image cap">
+                <div class="card-block">
+                  <h5 class="card-title" align="center">Samsung pro 8</h5>
+                  <p align="center">&#8377 84999 &#8377 <del>133999</del><b> 36% off</b></p>
+                  <a href="#" data-name="Samsungpro8" data-price="84999" class="add-to-cart btn btn-primary">Add to cart</a>
+                </div>
+              </div>
+         </div>
+        
+         
+    </div>
+</div><br>
+
+
+<!--Second row-->
+<div class="row">
+         
+        <div class="col-sm-3"></div>
+         <div class="col-sm-2">
+        
+                <div class="card card-box" style="width: 18rem;height: 22rem;margin-left: -16px;">
+                  <img class="card-img-top" src="apple.jpeg" alt="Card image cap">
+                        <div class="card-block">
+                            <h5 class="card-title" align="center">Thomson B9 pro</h5>
+                            <p align="center">&#8377 9999 &#8377 <del>16999</del><b> 41% off</b></p>
+                            <a href="#" data-name="ThomsonB9pro" data-price="9999" class="add-to-cart btn btn-primary">Add to cart</a>
+                        </div>
+               </div> 
+              </a>
+          </div>
+          <div class="col-sm-1"></div>
+          <div class="col-sm-2">
+              <div class="card" style="width: 18rem;height: 22rem;margin-left: -35px;">
+                  <img class="card-img-top" src="apple.jpeg" alt="Card image cap">
+                  <div class="card-block">
+                    <h5 class="card-title" align="center">LG Ulra HD</h5>
+                    <p align="center">&#8377 39990 &#8377 <del>79990</del><b> 50% off</b></p>
+                    <a href="#" data-name="LGUlraHD" data-price="39990" class="add-to-cart btn btn-primary">Add to cart</a>
+                  </div>
+              </div>
+          </div>
+         <div class="col-sm1"></div>
+         <div class="col-sm-2">
+              <div class="card" style="width: 18rem;height: 22rem;margin-left: 65px;">
+                <img class="card-img-top" src="apple.jpeg" alt="Card image cap">
+                <div class="card-block">
+                  <h5 class="card-title" align="center">Vu Ready LED TV</h5>
+                  <p align="center">&#8377 7999 &#8377 <del>17000</del><b> 52% off</b></p>
+                  <a href="#" data-name="VuReadyLEDTV" data-price="7999" class="add-to-cart btn btn-primary">Add to cart</a>
+                </div>
+              </div>
+         </div>
+        
+         
+    </div>
+</div>
+  
+ <!-- Modal -->
+<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel" style="margin-left: 45%;font-size: 30px;">Cart</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: 40px;">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <table class="show-cart table">
+              
+            </table>
+            <div class="total-price"><b>Total price: </b>&#8377<span class="total-cart"></span></div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Order now</button>
+          </div>
+    </div>
+  </div>
+</div> <br>
+
+
+  <div class="row">
+    <div class="col-sm-12">
+    <footer class="end">&copy;Copyright 2020-2030 All Rights Reserved . Powered by ShopKart</footer></div>
+  </div>
+
+<!--script start-->
+
+ <script type="text/javascript">
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("val");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function() {
+      output.innerHTML = this.value;
+    }
+
+  
+// Add to Cart 
+
+var shoppingCart = (function() {
+  cart = [];
+  
+  // Constructor
+  function Item(name, price, count) {
+    this.name = name;
+    this.price = price;
+    this.count = count;
+  }
+  
+  // Save cart
+  function saveCart() {
+    sessionStorage.setItem('shoppingCart', JSON.stringify(cart));
+  }
+  
+    // Load cart
+  function loadCart() {
+    cart = JSON.parse(sessionStorage.getItem('shoppingCart'));
+  }
+  if (sessionStorage.getItem("shoppingCart") != null) {
+    loadCart();
+  }
+  
+  // Public methods and propeties
+  
+  var obj = {};
+  
+  // Add to cart
+  obj.addItemToCart = function(name, price, count) {
+    for(var item in cart) {
+      if(cart[item].name === name) {
+        cart[item].count ++;
+        saveCart();
+        return;
+      }
+    }
+    var item = new Item(name, price, count);
+    cart.push(item);
+    saveCart();
+  }
+  // Set count from item
+  obj.setCountForItem = function(name, count) {
+    for(var i in cart) {
+      if (cart[i].name === name) {
+        cart[i].count = count;
+        break;
+      }
+    }
+  };
+  // Remove item from cart
+  obj.removeItemFromCart = function(name) {
+      for(var item in cart) {
+        if(cart[item].name === name) {
+          cart[item].count --;
+          if(cart[item].count === 0) {
+            cart.splice(item, 1);
+          }
+          break;
+        }
+    }
+    saveCart();
+  }
+
+  // Remove all items from cart
+  obj.removeItemFromCartAll = function(name) {
+    for(var item in cart) {
+      if(cart[item].name === name) {
+        cart.splice(item, 1);
+        break;
+      }
+    }
+    saveCart();
+  }
+
+  // Clear cart
+  obj.clearCart = function() {
+    cart = [];
+    saveCart();
+  }
+
+  // Count cart 
+  obj.totalCount = function() {
+    var totalCount = 0;
+    for(var item in cart) {
+      totalCount += cart[item].count;
+    }
+    return totalCount;
+  }
+
+  // Total cart
+  obj.totalCart = function() {
+    var totalCart = 0;
+    for(var item in cart) {
+      totalCart += cart[item].price * cart[item].count;
+    }
+    return Number(totalCart.toFixed(2));
+  }
+
+  // List cart
+  obj.listCart = function() {
+    var cartCopy = [];
+    for(i in cart) {
+      item = cart[i];
+      itemCopy = {};
+      for(p in item) {
+        itemCopy[p] = item[p];
+
+      }
+      itemCopy.total = Number(item.price * item.count).toFixed(2);
+      cartCopy.push(itemCopy)
+    }
+    return cartCopy;
+  }
+
+  return obj;
+})();
+
+// Triggers / Events
+$('.add-to-cart').click(function(event) {
+  event.preventDefault();
+  var name = $(this).data('name');
+  var price = Number($(this).data('price'));
+  shoppingCart.addItemToCart(name, price, 1);
+  displayCart();
+});
+
+// Clear items
+$('.clear-cart').click(function() {
+  shoppingCart.clearCart();
+  displayCart();
+});
+
+
+function displayCart() {
+  var cartArray = shoppingCart.listCart();
+  var output = "";
+  for(var i in cartArray) {
+    output += "<tr>"
+      + "<td>" + cartArray[i].name + "</td>" 
+      + "<td>(" + cartArray[i].price + ")</td>"
+      + "<td><div class='input-group'><button class='minus-item input-group-addon btn btn-primary' data-name=" + cartArray[i].name + ">-</button>"
+      + "<input type='number' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>"
+      + "<button class='plus-item btn btn-primary input-group-addon' data-name=" + cartArray[i].name + ">+</button></div></td>"
+      + "<td><button class='delete-item btn btn-danger' data-name=" + cartArray[i].name + ">X</button></td>"
+      + " = " 
+      + "<td>" + cartArray[i].total + "</td>" 
+      +  "</tr>";
+  }
+  $('.show-cart').html(output);
+  $('.total-cart').html(shoppingCart.totalCart());
+  $('.total-count').html(shoppingCart.totalCount());
+}
+
+// Delete item button
+
+$('.show-cart').on("click", ".delete-item", function(event) {
+  var name = $(this).data('name')
+  shoppingCart.removeItemFromCartAll(name);
+  displayCart();
+})
+
+
+// -1
+$('.show-cart').on("click", ".minus-item", function(event) {
+  var name = $(this).data('name')
+  shoppingCart.removeItemFromCart(name);
+  displayCart();
+})
+// +1
+$('.show-cart').on("click", ".plus-item", function(event) {
+  var name = $(this).data('name')
+  shoppingCart.addItemToCart(name);
+  displayCart();
+})
+
+// Item count input
+$('.show-cart').on("change", ".item-count", function(event) {
+   var name = $(this).data('name');
+   var count = Number($(this).val());
+  shoppingCart.setCountForItem(name, count);
+  displayCart();
+});
+
+displayCart();
+
+  </script>
+</body>
+</html> 
